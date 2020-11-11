@@ -18,29 +18,97 @@
 	overflow: hidden;
 }
 
+.bergabung-bg{
+	background-image: url("img/bergabung-bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 640px;
+	position: relative;
+	overflow: hidden;
+}
+
 .navbar{
 	width: 100%
 }
+
 
 #svg-header-brand{
 	position: absolute;
 	left: 90px;
 }
-
 #svg-header-bor-btm{
 	position: absolute;
 	left: 0;
 	top: 579.61px;
 }
 
+#svg-bergabung-bor-top{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#svg-bergabung-bor-btm{
+	position: absolute;
+	left: 0;
+	top: 498px;;
+}
+
+#svg-berdonasi-bor-top{
+	position: absolute;
+	left: 0;
+	top: -20px;
+}
+#svg-berdonasi-bor-btm{
+	position: absolute;
+	left: 0;
+	top: 498px;;
+}
+
+
+
 .hidden-elm{
 	visibility: hidden;
 }
-
 .transparent{
 	background-color: transparent;
 }
+.black{
+	background-color: black;
+}
+.btn-alpha-grey{
+	background-color: rgba(54,54,54,.8);
+}
+.btn-alpha-grey:hover{
+	background-color: rgba(150,150,150,.8);
+}
+
 
 .tagline-container{
 	object-fit: fill;
 }
+
+
+.clip-svg-kegiatan1{
+	clip-path: url(#border-foto-kegiatan1);
+}
+.clip-svg-kegiatan2{
+	clip-path: url(#border-foto-kegiatan2);
+}
+
+
+.hspace-xl{
+	margin-top: 250px;
+}
+.hspace-lg{
+	margin-top: 200px;
+}
+.hspace-md{
+	margin-top: 150px;
+}
+.hspace-sm{
+	margin-top: 100px;
+}
+
+
