@@ -1,0 +1,46 @@
+#logo-header{
+	width: 72px;
+	height: 72px;
+}
+
+.bg-alpha {
+	background-color: none;
+}
+
+.tagline-bg{
+	background-image: url("img/portir_addaariat_kegiatan2.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 707px;
+	position: relative;
+	overflow: hidden;
+}
+
+.navbar{
+	width: 100%
+}
+
+#svg-header-brand{
+	position: absolute;
+	left: 90px;
+}
+
+#svg-header-bor-btm{
+	position: absolute;
+	left: 0;
+	top: 579.61px;
+}
+
+.hidden-elm{
+	visibility: hidden;
+}
+
+.transparent{
+	background-color: transparent;
+}
+
+.tagline-container{
+	object-fit: fill;
+}
