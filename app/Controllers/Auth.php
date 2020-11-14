@@ -14,7 +14,7 @@ class Auth extends BaseController
 
     public function index() {
         if ($this->session->logged_in)
-            return redirect()->to('/admin/dashboard');
+            return redirect()->to(route_to('dashboard'));
         else {
             $data = [
                 'title' => 'Login',
@@ -41,7 +41,7 @@ class Auth extends BaseController
         ];
 
         if (! $this->validate($validate))
-            return redirect()->to('/admin')->withInput()->with('validation', $this->validation);
+            return redirect()->to(route_to('index'))->withInput()->with('validation', $this->validation);
         else {
             $username = $this->request->getVar('username');
             $password = $this->request->getVar('password');
@@ -55,10 +55,10 @@ class Auth extends BaseController
                     'logged_in' => true
                 ];
                 $this->session->set($data);
-                return redirect()->to('/admin/dashboard');
+                return redirect()->to(route_to('dashboard'));
             } else {
                 $data = $this->session->setFlashData('fail', 'Username atau Password Salah.');
-                return redirect()->to('/admin');
+                return redirect()->to(route_to('index'));
             }    
         }
     }
@@ -66,7 +66,7 @@ class Auth extends BaseController
     public function logout() {
         if ($this->session->logged_in) {
             $this->session->destroy();
-            return redirect()->to('/admin');
+            return redirect()->to(route_to('index'));
         }
     }
 }

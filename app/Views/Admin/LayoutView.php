@@ -30,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin') ?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= route_to('index') ?>">
                 <div class="sidebar-brand-text mx-3">Addaariat</div>
             </a>
 
@@ -39,7 +39,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?= base_url('admin') ?>">
+                <a class="nav-link" href="<?= route_to('index') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -54,8 +54,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('admin/create') ?>">Kegiatan Baru </a>
-                        <a class="collapse-item" href="<?= base_url('admin/kegiatan') ?>">Daftar Kegiatan</a>
+                        <a class="collapse-item" href="<?= route_to('create') ?>">Kegiatan Baru </a>
+                        <a class="collapse-item" href="<?= route_to('posts') ?>">Daftar Kegiatan</a>
                     </div>
                 </div>
             </li>
@@ -98,7 +98,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <form action="<?= base_url('admin/logout') ?>" method="POST">
+                                <form action="<?= route_to('logout') ?>" method="POST">
                                     <button type="submit" class="btn btn-link"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout</button>
                                 </form>

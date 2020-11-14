@@ -20,7 +20,7 @@ class Dashboard extends BaseController
             return view('Admin/DashboardView', $data);
         }
         else
-            return redirect()->to('/admin');
+            return redirect()->to(route_to('index'));
     }
     
     public function create() {
@@ -32,7 +32,7 @@ class Dashboard extends BaseController
             return view('Admin/CreateView', $data);
         }
         else
-            return redirect()->to('/admin');
+        return redirect()->to(route_to('create'));
     }
 
     public function store() {
@@ -64,9 +64,15 @@ class Dashboard extends BaseController
         ];
 
         if (! $this->validate($validate))
-            return redirect()->to('/admin/create')->withInput();
+            return redirect()->to(route_to('create'))->withInput();
         else {
+            helper('text');
+            do {
+                $ucode = random_string('alnum', 7);
+                $eksis = $this->postModel->where('u_code', $ucode)->first()['u_code'] == $ucode;
+            } while ($eksis);
             $this->postModel->save([
+                'u_code' => $ucode,
                 'judul' => $this->request->getVar('judul'),
                 'slug' => url_title($this->request->getVar('judul'), '-', true),
                 'lokasi' => $this->request->getVar('lokasi'),
@@ -74,19 +80,42 @@ class Dashboard extends BaseController
                 'deskripsi' => $this->request->getVar('deskripsi')
             ]);
             $this->session->setFlashData('notif', ['status' => 'success', 'msg' => 'Berhasil menambahkan kegiatan.']);
-            return redirect()->to('/admin/kegiatan');
+            return redirect()->to(route_to('posts'));
         }
     }
 
     public function posts() {
-        // $pager = \Config\Services::pager();
         $data = [
             'title' => 'Daftar Kegiatan',
-            'post' => $this->postModel->orderBy('created_at', 'desc')->findAll(),
+            'post' => $this->postModel->getPost(),
             'notif' => $this->session->getFlashData('notif')
         ];
 
         return view('Admin/PostsView', $data);
+    }
+
+    public function detail($slug) {
+        $post = $this->postModel->getPost($slug);
+        if ($post) {
+            $data = [
+                'title' => 'Detail Kegiatan - ' . $post['judul'],
+                'post' => $post
+            ];
+            
+            return view('Admin/DetailView', $data);
+        }
+        $this->session->setFlashData('notif', ['status' => 'danger', 'msg' => 'Terjadi kesalahan.']);
+        return redirect()->to(route_to('posts'));
+    }
+
+    public function destroy($slugs) {
+        $slug = explode('-', $slugs);
+        $code = array_pop($slug);
+        $post =  $this->postModel->where(['u_code' => $code, 'slug' => implode('-', $slug)]);
+        $post->delete();
+
+        $this->session->setFlashData('notif', ['status' => 'success', 'msg' => 'Berhasil menghapus kegiatan.']);
+        return redirect()->to(route_to('posts'));
     }
 
 }

@@ -10,7 +10,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Daftar Kegiatan</h1>
-                <a href="create" class="btn btn-success">
+                <a href="<?= route_to('create') ?>" class="btn btn-success">
                     <i class="fa fa-plus"></i> Tambah Kegiatan Baru
                 </a>
             </div>
@@ -29,7 +29,7 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Judul</th>
+                                    <th>Nama Kegiatan</th>
                                     <th>Deskripsi</th>
                                     <th>Tanggal Kegiatan</th>
                                     <th>Lokasi</th>
@@ -47,15 +47,17 @@
                                     <td width="12%"><?= date('d M Y', strtotime($row['tanggal'])) ?></td>
                                     <td><?= $row['lokasi'] ?></td>
                                     <td>FOTO</td>
-                                    <td>
-                                        <a href="#" class="btn btn-sm btn-info mb-2">
+                                    <td width="13%">
+                                        <a href="<?= route_to('detail', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-sm btn-info mb-2">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a href="#" class="btn btn-sm btn-primary mb-2">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <form action="" method="">
-                                            <button type="submit" class="btn btn-sm btn-danger mb-2">
+                                        <form action="<?= route_to('destroy', $row['slug'] . '-' . $row['u_code']) ?>" method="POST" class="d-inline">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-sm btn-danger mb-2" onclick="return confirm('Yakin ingin menghapus data. Data akan terhapus secara permanen.')">
                                                 <i class="fa fa-trash"></i>
                                             </button>
                                         </form>

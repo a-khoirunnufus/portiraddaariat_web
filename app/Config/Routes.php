@@ -32,13 +32,17 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->group('admin', function($routes) {
-	$routes->get('/', 'Auth::index');
-	$routes->post('login', 'Auth::login');
-	$routes->post('logout', 'Auth::logout');
-	$routes->get('dashboard', 'Dashboard::index');
-	$routes->get('create', 'Dashboard::create');
-	$routes->post('store', 'Dashboard::store');
-	$routes->get('kegiatan', 'Dashboard::posts');
+	$routes->get('/', 'Auth::index', ['as' => 'index']);
+	$routes->post('login', 'Auth::login', ['as' => 'login']);
+	$routes->post('logout', 'Auth::logout', ['as' => 'logout']);
+	$routes->get('dashboard', 'Dashboard::index', ['as' => 'dashboard']);
+	$routes->group('kegiatan', function($routes) {
+		$routes->get('/', 'Dashboard::posts', ['as' => 'posts']);
+		$routes->get('add', 'Dashboard::create', ['as' => 'create']);
+		$routes->post('store', 'Dashboard::store', ['as' => 'store']);
+		$routes->get('(:any)', 'Dashboard::detail/$1', ['as' => 'detail']);
+		$routes->delete('(:any)', 'Dashboard::destroy/$1', ['as' => 'destroy']);
+	});
 });
 
 /**

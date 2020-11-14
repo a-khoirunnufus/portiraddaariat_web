@@ -38,7 +38,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" method="POST" action="<?= base_url('admin/login') ?>">
+                                    <form class="user" method="POST" action="<?= route_to('login') ?>">
                                         <?= csrf_field() ?>
                                         <div class="form-group">
                                             <input type="username" class="form-control form-control-user <?= $validation->hasError('username') ? 'is-invalid' : '' ?>" id="exampleInputUsername" aria-describedby="usernameHelp" placeholder="Enter Username..." name="username" value="<?= old('username') ?>">
