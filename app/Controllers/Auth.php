@@ -4,6 +4,9 @@ use App\Models\AdminModel;
 
 class Auth extends BaseController
 {
+    protected $adminModel;
+    protected $validation;
+
     public function __construct() {
         $this->adminModel = new AdminModel();
         $this->validation = \Config\Services::validation();
@@ -14,6 +17,7 @@ class Auth extends BaseController
             return redirect()->to('/admin/dashboard');
         else {
             $data = [
+                'title' => 'Login',
                 'validation' => $this->validation
             ];
             return view('Admin/LoginView', $data);
@@ -39,12 +43,23 @@ class Auth extends BaseController
         if (! $this->validate($validate))
             return redirect()->to('/admin')->withInput()->with('validation', $this->validation);
         else {
-            if ($this->adminModel->login())
+            $username = $this->request->getVar('username');
+            $password = $this->request->getVar('password');
+
+            $user = $this->adminModel->where(['username' => $username, 'password' => $password])->first();
+            
+            if ($user) {
+                $data = [
+                    'username' => $user['username'],
+                    'nama' => $user['nama'],
+                    'logged_in' => true
+                ];
+                $this->session->set($data);
                 return redirect()->to('/admin/dashboard');
-            else {
+            } else {
                 $data = $this->session->setFlashData('fail', 'Username atau Password Salah.');
                 return redirect()->to('/admin');
-            }
+            }    
         }
     }
 

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Portir Addariat Banyuwangi | <?= $title ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('/assets/font-awesome/all.min.css') ?>" rel="stylesheet" type="text/css">
@@ -71,7 +71,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/jquery/jquery.min.js') ?>"></script>
-    <script src="<?= base_url('/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/sb-admin/js/sb-admin-2.min.js') ?>"></script>

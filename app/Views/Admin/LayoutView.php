@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Portir Addariat Banyuwangi | <?= $title ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('/assets/font-awesome/all.min.css') ?>" rel="stylesheet" type="text/css">
@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/sb-admin/css/sb-admin-2.min.css') ?>" rel="stylesheet">
+    <?= $this->renderSection('style') ?>
 
 </head>
 
@@ -49,12 +50,12 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Components</span>
+                    <span>Kegiatan</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="<?= base_url('admin/create') ?>">Kegiatan Baru </a>
+                        <a class="collapse-item" href="<?= base_url('admin/kegiatan') ?>">Daftar Kegiatan</a>
                     </div>
                 </div>
             </li>
@@ -144,10 +145,11 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/jquery/jquery.min.js') ?>"></script>
-    <script src="<?= base_url('bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url('assets/sb-admin/js/sb-admin-2.min.js') ?>"></script>
+    <?= $this->renderSection('script') ?>
 
 </body>
 

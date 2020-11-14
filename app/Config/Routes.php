@@ -36,6 +36,9 @@ $routes->group('admin', function($routes) {
 	$routes->post('login', 'Auth::login');
 	$routes->post('logout', 'Auth::logout');
 	$routes->get('dashboard', 'Dashboard::index');
+	$routes->get('create', 'Dashboard::create');
+	$routes->post('store', 'Dashboard::store');
+	$routes->get('kegiatan', 'Dashboard::posts');
 });
 
 /**
