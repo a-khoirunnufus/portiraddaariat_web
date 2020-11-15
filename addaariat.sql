@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Nov 2020 pada 13.49
+-- Waktu pembuatan: 15 Nov 2020 pada 07.01
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `addaariat`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kegiatan`
+--
+
+CREATE TABLE `kegiatan` (
+  `id` int(11) NOT NULL,
+  `u_code` varchar(7) NOT NULL,
+  `judul` varchar(128) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `tanggal` date NOT NULL,
+  `lokasi` varchar(50) NOT NULL,
+  `deskripsi` longtext NOT NULL,
+  `foto` varchar(512) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,6 +66,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `nama`) VALUES
 --
 
 --
+-- Indeks untuk tabel `kegiatan`
+--
+ALTER TABLE `kegiatan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `u_code` (`u_code`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -55,6 +81,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `kegiatan`
+--
+ALTER TABLE `kegiatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
