@@ -30,10 +30,9 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Nama Kegiatan</th>
-                                    <th>Deskripsi</th>
+                                    <th class="desc">Deskripsi</th>
                                     <th>Tanggal Kegiatan</th>
                                     <th>Lokasi</th>
-                                    <th>Foto</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -46,7 +45,6 @@
                                     <td width="30%"><?= $row['deskripsi'] ?></td>
                                     <td width="12%"><?= date('d M Y', strtotime($row['tanggal'])) ?></td>
                                     <td><?= $row['lokasi'] ?></td>
-                                    <td>FOTO</td>
                                     <td width="13%">
                                         <a href="<?= route_to('detail', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-sm btn-info mb-2">
                                             <i class="fa fa-eye"></i>

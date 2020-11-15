@@ -8,9 +8,11 @@ $(document).ready(function() {
             {
                 'targets': 2,
                 'render': function(data, type) {
-                    if (type === 'display')
+                    if (type === 'display') {
+                        if ($('.desc').width() < 175) 
+                            data = descTrunc(data, 50);
                         data = descTrunc(data, 150);
-
+                    }
                     return data;
                 }
             }

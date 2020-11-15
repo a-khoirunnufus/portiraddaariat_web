@@ -21,7 +21,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="sidebar-toggled">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -38,24 +38,25 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item <?= uri_string() == 'admin/dashboard' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?= route_to('index') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <li class="nav-item <?= strpos(uri_string(), 'kegiatan') ? 'active' : '' ?>">
+                <a class="nav-link <?= strpos(uri_string(), 'kegiatan') ? '' : 'collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <span>Kegiatan</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= route_to('create') ?>">Kegiatan Baru </a>
-                        <a class="collapse-item" href="<?= route_to('posts') ?>">Daftar Kegiatan</a>
+                        <a class="collapse-item <?= uri_string() == 'admin/kegiatan/add' ? 'active' : '' ?>" href="<?= route_to('create') ?>">Kegiatan Baru </a>
+                        <a class="collapse-item <?= uri_string() == 'admin/kegiatan' ? 'active' : '' ?>" href="<?= route_to('posts') ?>">Daftar Kegiatan</a>
                     </div>
                 </div>
             </li>

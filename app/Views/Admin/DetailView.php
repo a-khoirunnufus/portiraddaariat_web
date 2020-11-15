@@ -1,5 +1,26 @@
 <?= $this->extend('Admin/LayoutView') ?>
 
+<?= $this->section('style') ?>
+<style>
+    .galleries::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+    }
+
+    .galleries::-webkit-scrollbar {
+        width: 7px;
+        background-color: #F5F5F5;
+    }
+
+    .galleries::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+    }
+</style>
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 <div class="row">
     <div class="col">
@@ -17,10 +38,7 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4">
-                        FOTO
-                    </div>
-                    <div class="col-8">
+                    <div class="col-12 col-lg-8 mb-3 mb-lg-0">
                         <h5 class="font-weight-bold">Nama Kegiatan</h5>
                         <p><?= $post['judul'] ?></p>
                         <h5 class="font-weight-bold">Lokasi</h5>
@@ -30,11 +48,21 @@
                         <h5 class="font-weight-bold">Deskripsi</h5>
                         <p><?= $post['deskripsi'] ?></p>
                     </div>
+                    <div class="col-12 col-lg-4 galleries overflow-auto" style="max-height: 600px;">
+                    <?php 
+                    $photos = json_decode($post['foto']); 
+                    foreach ($photos as $foto):
+                    ?>
+                    <img src="<?= base_url() . '/uploads/imgs/' . $foto ?>" alt="" class="img-fluid rounded mb-2">
+                    <?php endforeach ?>
+                    </div>
                 </div>
             </div>
             <div class="card-footer d-flex flex-row">
-                <form action="#" class="mr-3">
-                    <button type="submit" class="btn btn-danger">
+                <form action="<?= route_to('destroy', $post['slug'] . '-' . $post['u_code']) ?>" method="POST" class="d-inline mr-3">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data. Data akan terhapus secara permanen.')">
                         <i class="fa fa-trash"></i> Hapus Kegiatan
                     </button>
                 </form>
