@@ -16,7 +16,6 @@
 <?= $this->section('content') ?>
     <div class="row">
         <div class="col">
-            <!-- Page Heading -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= route_to('dashboard') ?>">Dashboard</a></li>
@@ -48,19 +47,19 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <label for="lokasi">Lokasi</label>
-                                    <input class="form-control <?= $validation->hasError('lokasi') ? 'is-invalid' : '' ?>" name="lokasi" id="lokasi" type="text" value="<?= old('lokasi') ?>">
+                                    <label for="tanggal">Tanggal Pelaksanaan Kegiatan</label>
+                                    <input class="form-control <?= $validation->hasError('tanggal') ? 'is-invalid' : '' ?>" name="tanggal" id="tanggal" type="date" value="<?= old('tanggal') ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('lokasi') ?>
+                                        <?= $validation->getError('tanggal') ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <label for="tanggal">Tanggal Pelaksanaan Kegiatan</label>
-                                    <input class="form-control <?= $validation->hasError('tanggal') ? 'is-invalid' : '' ?>" name="tanggal" id="tanggal" type="date" value="<?= old('tanggal') ?>">
+                                    <label for="lokasi">Lokasi</label>
+                                    <input class="form-control <?= $validation->hasError('lokasi') ? 'is-invalid' : '' ?>" name="lokasi" id="lokasi" type="text" value="<?= old('lokasi') ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('tanggal') ?>
+                                        <?= $validation->getError('lokasi') ?>
                                     </div>
                                 </div>
                             </div>

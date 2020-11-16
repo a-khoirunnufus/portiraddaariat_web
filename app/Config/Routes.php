@@ -40,6 +40,11 @@ $routes->group('admin', function($routes) {
 		$routes->get('/', 'Dashboard::posts', ['as' => 'posts']);
 		$routes->get('add', 'Dashboard::create', ['as' => 'create']);
 		$routes->post('store', 'Dashboard::store', ['as' => 'store']);
+		$routes->get('edit/(:any)', 'Dashboard::edit/$1', ['as' => 'edit']);
+		$routes->post('update/(:any)', 'Dashboard::update/$1', ['as' => 'update']);
+		$routes->get('galeri/(:any)', 'Dashboard::edit_galeri/$1', ['as' => 'edit-gallery']);
+		$routes->delete('delete-photo/(:any)', 'Dashboard::delete_photo/$1', ['as' => 'delete-photo']);
+		$routes->post('update-gallery/(:any)', 'Dashboard::update_gallery/$1', ['as' => 'update-gallery']);
 		$routes->get('(:any)', 'Dashboard::detail/$1', ['as' => 'detail']);
 		$routes->delete('(:any)', 'Dashboard::destroy/$1', ['as' => 'destroy']);
 	});
