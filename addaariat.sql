@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Nov 2020 pada 07.01
+-- Waktu pembuatan: 16 Nov 2020 pada 07.03
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -31,12 +31,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `kegiatan` (
   `id` int(11) NOT NULL,
   `u_code` varchar(7) NOT NULL,
-  `judul` varchar(128) NOT NULL,
-  `slug` varchar(128) NOT NULL,
+  `judul` varchar(1024) NOT NULL,
+  `slug` varchar(1024) NOT NULL,
   `tanggal` date NOT NULL,
   `lokasi` varchar(50) NOT NULL,
   `deskripsi` longtext NOT NULL,
-  `foto` varchar(512) NOT NULL,
+  `foto` longtext NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -86,7 +86,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
