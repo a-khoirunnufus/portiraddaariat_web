@@ -49,7 +49,7 @@
                                         <a href="<?= route_to('detail', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-sm btn-info mb-2">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-primary mb-2">
+                                        <a href="<?= route_to('edit', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-sm btn-primary mb-2">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form action="<?= route_to('destroy', $row['slug'] . '-' . $row['u_code']) ?>" method="POST" class="d-inline">

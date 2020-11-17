@@ -38,6 +38,7 @@
                         </div>
                         <?php endif ?>
                     </div>
+                    <hr>
                     <div class="row">
                         <?php if ($post): ?>
                         <?php foreach ($post as $row): ?>
@@ -51,7 +52,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <a href="<?= route_to('detail', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-sm btn-info mb-1 mb-lg-0">Lihat Detail</a>
-                                    <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="<?= route_to('edit', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-sm btn-warning">Edit</a>
                                 </div>
                             </div>
                         </div>
