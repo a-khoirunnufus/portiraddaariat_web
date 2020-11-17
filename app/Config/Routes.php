@@ -32,11 +32,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 $routes->get('/', 'Home::index');
-
 $routes->group('kegiatan', function($routes) {
-	$routes->get('/', 'Home::list-kegiatan');
+	$routes->get('/', 'Home::list_kegiatan');
 	$routes->get('(:any)', 'Home::detail/$1');
 });
+$routes->group('about', 'Home::about');
+$routes->group('donasi', 'Home::donasi');
+$routes->group('bantuan', 'Home::bantuan');
 
 $routes->group('admin', function($routes) {
 	$routes->get('/', 'Auth::index', ['as' => 'index']);

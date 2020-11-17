@@ -22,10 +22,10 @@
 
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-item nav-link" href="#">KEGIATAN KAMI</a>
-				<a class="nav-item nav-link" href="#">TENTANG KAMI</a>
-				<a class="nav-item nav-link" href="#">DONASI</a>
-				<a class="nav-item nav-link" href="#">BANTUAN</a>
+				<a class="nav-item nav-link" href="<?= route_to('kegiatan') ?>">KEGIATAN KAMI</a>
+				<a class="nav-item nav-link" href="<?= route_to('about') ?>">TENTANG KAMI</a>
+				<a class="nav-item nav-link" href="<?= route_to('donasi') ?>">DONASI</a>
+				<a class="nav-item nav-link" href="<?= route_to('bantuan') ?>">BANTUAN</a>
 			</div>
 		</div>
 	</nav>				

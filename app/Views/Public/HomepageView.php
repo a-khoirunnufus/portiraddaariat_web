@@ -1,5 +1,9 @@
 <?= $this->extend('Public/LayoutView') ?>
 
+<?= $this->section('style') ?>
+
+<?= $this->endSection() ?>
+
 <?= $this->section('text-header') ?>
 <div class="flex-fill d-flex">
 	<div class="jumbotron transparent align-self-center col-6">

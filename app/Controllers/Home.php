@@ -21,6 +21,10 @@ class Home extends BaseController
 	}
 
 	public function detail($slug) {
+		$data = [
+                'title' => 'Detail'
+            ];
+		return view('Public/DetailActivityViewTemp', $data);
         $post = $this->postModel->getPost($slug);
         if ($post) {
             $data = [
@@ -30,6 +34,36 @@ class Home extends BaseController
             
             return view('Public/DetailActivityView', $data);
         }
+
+        echo 'data tidak ada';
+    }
+
+    public function list_kegiatan(){
+    	$data = [
+                'title' => 'List Kegiatan'
+        ];
+    	return view('Public/ListKegiatanView',$data);
+    }
+
+    public function about(){
+    	$data = [
+                'title' => 'Tentang Kami'
+        ];
+    	return view('Public/AboutView',$data);
+    }
+
+    public function donasi(){
+    	$data = [
+                'title' => 'Donasi'
+        ];
+    	return view('Public/DonasiView',$data);
+    }
+
+    public function bantuan(){
+    	$data = [
+                'title' => 'Bantuan'
+        ];
+    	return view('Public/BantuanView',$data);
     }
 
 	//--------------------------------------------------------------------
