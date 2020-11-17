@@ -31,14 +31,14 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index', ['as' => 'homepage']);
 $routes->group('kegiatan', function($routes) {
-	$routes->get('/', 'Home::list_kegiatan');
-	$routes->get('(:any)', 'Home::detail/$1');
+	$routes->get('/', 'Home::list_kegiatan', ['as' => 'list-kegiatan']);
+	$routes->get('(:any)', 'Home::detail/$1', ['as' => 'detail']);
 });
-$routes->group('about', 'Home::about');
-$routes->group('donasi', 'Home::donasi');
-$routes->group('bantuan', 'Home::bantuan');
+$routes->get('about', 'Home::about', ['as' => 'about']);
+$routes->get('donasi', 'Home::donasi', ['as' => 'donasi']);
+$routes->get('bantuan', 'Home::bantuan', ['as' => 'bantuan']);
 
 $routes->group('admin', function($routes) {
 	$routes->get('/', 'Auth::index', ['as' => 'index']);

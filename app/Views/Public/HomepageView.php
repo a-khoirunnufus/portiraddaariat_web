@@ -47,7 +47,7 @@
 			<h4 class="font-weight-bold"><?= $row['judul'] ?></h4>
 			<i class="fa fa-map-marker" aria-hidden="true"></i><h4 class="d-inline font-weight-bold"> <?= $row['lokasi'] ?></h4>
 			<p class="lead desc-kegiatan mt-5"><?= $row['deskripsi'] ?></p>
-			<div type="button" class="btn btn-primary mt-3">Lihat Selengkapnya</div>
+			<a href="<?= route_to('detail', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-primary mt-3">Lihat Selengkapnya</a>
 		</div>
 	</div>
 	<?php else: ?>
@@ -57,7 +57,7 @@
 			<h4 class="font-weight-bold"><?= $row['judul'] ?></h4>
 			<i class="fa fa-map-marker" aria-hidden="true"></i><h4 class="d-inline font-weight-bold"> <?= $row['lokasi'] ?></h4>
 			<p class="lead desc-kegiatan mt-5"><?= $row['deskripsi'] ?></p>
-			<div type="button" class="btn btn-primary mt-3">Lihat Selengkapnya</div>
+			<a href="<?= route_to('detail', $row['slug'] . '-' . $row['u_code']) ?>" class="btn btn-primary mt-3">Lihat Selengkapnya</a>
 		</div>
 		<div class="col-6">
 			<?php $photos = json_decode($row['foto']); ?>

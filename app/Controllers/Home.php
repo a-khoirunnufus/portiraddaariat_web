@@ -21,10 +21,6 @@ class Home extends BaseController
 	}
 
 	public function detail($slug) {
-		$data = [
-                'title' => 'Detail'
-            ];
-		return view('Public/DetailActivityViewTemp', $data);
         $post = $this->postModel->getPost($slug);
         if ($post) {
             $data = [
@@ -39,10 +35,16 @@ class Home extends BaseController
     }
 
     public function list_kegiatan(){
-    	$data = [
-                'title' => 'List Kegiatan'
-        ];
-    	return view('Public/ListKegiatanView',$data);
+        $posts = $this->postModel->getPost();
+        if ($posts) {
+        	$data = [
+                'title' => 'List Kegiatan',
+                'posts' => $posts
+            ];
+        	return view('Public/ListKegiatanView', $data);
+        }
+
+        echo 'data tidak ada';
     }
 
     public function about(){

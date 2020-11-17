@@ -12,7 +12,7 @@
 	</svg>
 
 	<nav id="top-navbar" class="navbar fixed-top navbar-expand-lg navbar-light bg-transparent">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="<?= route_to('homepage') ?>">
 			<img id="logo-header" src="<?= base_url('assets/img/logo_portiraddariat.jpg') ?>">
 			<span>PORTIR ADDAARIAT</span>
 		</a>
@@ -22,7 +22,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav ml-auto">
-				<a class="nav-item nav-link" href="<?= route_to('kegiatan') ?>">KEGIATAN KAMI</a>
+				<a class="nav-item nav-link" href="<?= route_to('list-kegiatan') ?>">KEGIATAN KAMI</a>
 				<a class="nav-item nav-link" href="<?= route_to('about') ?>">TENTANG KAMI</a>
 				<a class="nav-item nav-link" href="<?= route_to('donasi') ?>">DONASI</a>
 				<a class="nav-item nav-link" href="<?= route_to('bantuan') ?>">BANTUAN</a>

@@ -1,3 +1,7 @@
+<?php 
+	$listkegiatan = $posts;
+?>
+
 <?= $this->extend('Public/LayoutView') ?>
 
 <?= $this->section('style') ?>
@@ -45,25 +49,26 @@
 	</div> -->
 
 	<div class="hspace-xs">
-		<?php for($i = 0; $i<10; $i++): ?>
+		<?php foreach($listkegiatan as $kegiatan): ?>
+		<?php $foto = json_decode($kegiatan['foto']); ?>
 		<div class="row kegiatan-container d-flex mt-3">
 			<div class="col-md-2 pl-0">
-				<img src="<?= base_url('/assets/img/fotokegiatan01.jpg')?>" alt="foto kegiatan bersih bersih pantai">
+				<img src="<?= base_url().'/uploads/imgs/'.$foto[0] ?>" alt="foto kegiatan bersih bersih pantai">
 			</div>
 			<div class="col align-self-center">
 				<div class="row d-flex flex-row align-items-center">
 					<div class="col">
-						<p>SENIN, O1 JANUARI 2020</p>
-						<h5>World Clean up Day Banyuwangi</h5>
-						<h5><i class="fa fa-map-marker" aria-hidden="true"></i> Pantai Parang Ireng</h5>
+						<p><?= $kegiatan['tanggal'] ?></p>
+						<h5><?= $kegiatan['judul'] ?></h5>
+						<h5><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $kegiatan['lokasi'] ?></h5>
 					</div>
 					<div class="col-md-2">
-						<button class="btn btn-primary">Lihat Detail</button>
+						<a href="<?= route_to('detail', $kegiatan['slug'] . '-' . $kegiatan['u_code']) ?>" class="btn btn-primary mt-3">Lihat Detail</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php endfor ?>
+		<?php endforeach ?>
 	</div>
 </div>
 <?= $this->endSection() ?>
