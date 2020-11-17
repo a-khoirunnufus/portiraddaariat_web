@@ -30,7 +30,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
 $routes->get('/', 'Home::index');
+
+$routes->group('kegiatan', function($routes) {
+	$routes->get('/', 'Home::list-kegiatan');
+	$routes->get('(:any)', 'Home::detail/$1');
+});
+
 $routes->group('admin', function($routes) {
 	$routes->get('/', 'Auth::index', ['as' => 'index']);
 	$routes->post('login', 'Auth::login', ['as' => 'login']);

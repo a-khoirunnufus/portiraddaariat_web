@@ -3,17 +3,27 @@
 	height: 72px;
 }
 
-.bg-alpha {
+.bg-transparent {
 	background-color: none;
 }
 
-.tagline-bg{
+.header-bg-homepage{
 	background-image: url("img/portir_addaariat_kegiatan2.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	width: 100%;
 	height: 707px;
+	position: relative;
+	overflow: hidden;
+}
+.header-bg-menu{
+	background-image: url("img/portir_addaariat_kegiatan1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 500px;
 	position: relative;
 	overflow: hidden;
 }
@@ -30,18 +40,30 @@
 }
 
 .navbar{
-	width: 100%
+	padding-left: 10%;
+	padding-right: 10%;
+}
+.navbar-solid{
+	z-index: 1;
+	background-color: white;
+	border-bottom: 2px solid black;
 }
 
 
 #svg-header-brand{
 	position: absolute;
 	left: 90px;
+	z-index: 1;
 }
-#svg-header-bor-btm{
+#svg-header-bor-btm-homepage{
 	position: absolute;
 	left: 0;
 	top: 579.61px;
+}
+#svg-header-bor-btm-menu{
+	position: absolute;
+	left: 0;
+	top: 372.61px;
 }
 
 #svg-bergabung-bor-top{
@@ -97,6 +119,12 @@
 	clip-path: url(#border-foto-kegiatan2);
 }
 
+.thumbnail-kegiatan{
+	width: 500px;
+	height: 500px;
+	object-fit: cover;
+}
+
 
 .hspace-xl{
 	margin-top: 250px;
@@ -110,5 +138,39 @@
 .hspace-sm{
 	margin-top: 100px;
 }
+.hspace-xs{
+	margin-top: 50px;
+}
 
+/*halaman detail aktifitas*/
+.card-tanggal{
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px grey;
+	text-align: center;
+}
+.card-tanggal-innershape{
+	width: 100%;
+	height: 20%;
+	background-color: red;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.card-tanggal-text{
+	font-size: 48px;
+}
+
+img {
+  max-width: 100%;
+}
+img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+}
 
