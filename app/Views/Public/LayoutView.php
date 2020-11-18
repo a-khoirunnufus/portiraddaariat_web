@@ -18,14 +18,14 @@
 </head>
 <body>
 <!-- header section -->
+	<?= $this->include('Public/navbar') ?>
 	<div class="header">
 		<div class="header-bg<?= $title == 'Homepage' ? '-homepage' : '-menu' ?>" >
 			<?= $this->renderSection('img-bgheader') ?>
 			<div class="container d-flex flex-column h-100">
-				<?= $this->include('Public/navbar') ?>
 				<?= $this->renderSection('text-header') ?>
 			</div>
-			<svg id="svg-header-bor-btm<?= $title == 'Homepage' ? '-homepage' : '-menu' ?>" width="1366" height="193" viewBox="0 0 1366 193" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg id="svg-header-bor-btm<?= $title == 'Homepage' ? '-homepage' : '-menu' ?>" width="100%" height="193" viewBox="0 0 1366 193" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M-56 107.5C5.83333 77.5 167.9 24.7 321.5 53.5C513.5 89.5 753 103.5 911.5 53.5C1070 3.49997 1375.5 -55.5 1484 107.5C1570.8 237.9 1459.83 190.5 1393.5 150.5H-56V107.5Z" fill="white"/>
 			</svg>
 
@@ -70,22 +70,28 @@ $(document).ready(function(){
 		$('#top-navbar').addClass('navbar-dark');
 	}
 
-	//tampilan navbar berubah jika discroll
-	$(window).scroll(function () {
-		if(title == 'Homepage'){
-			if ($(this).scrollTop() >  98) {
-				$('#top-navbar').addClass('navbar-solid').removeClass('bg-transparent');
-			} else {
-				$('#top-navbar').addClass('bg-transparent').removeClass('navbar-solid');
+	var win_width = $(window).width();
+	if(win_width < 975){
+		$('#top-navbar').addClass('navbar-solid').removeClass('bg-transparent');
+		$('#svg-header-brand').attr('style','visibility: hidden');
+	}else{
+		//tampilan navbar berubah jika discroll
+		$(window).scroll(function () {
+			if(title == 'Homepage'){
+				if ($(this).scrollTop() >  98) {
+					$('#top-navbar').addClass('navbar-solid').removeClass('bg-transparent');
+				} else {
+					$('#top-navbar').addClass('bg-transparent').removeClass('navbar-solid');
+				}
+			}else{
+				if ($(this).scrollTop() >  98) {
+					$('#top-navbar').addClass('navbar-solid navbar-light').removeClass('bg-transparent navbar-dark');
+				} else {
+					$('#top-navbar').addClass('bg-transparent navbar-dark').removeClass('navbar-solid navbar-light');
+				}
 			}
-		}else{
-			if ($(this).scrollTop() >  98) {
-				$('#top-navbar').addClass('navbar-solid navbar-light').removeClass('bg-transparent navbar-dark');
-			} else {
-				$('#top-navbar').addClass('bg-transparent navbar-dark').removeClass('navbar-solid navbar-light');
-			}
-		}
-	});
+		});
+	}
 });
 </script>
 <?= $this->renderSection('script') ?>
