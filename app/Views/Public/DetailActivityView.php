@@ -127,8 +127,8 @@
 </style>
 <?= $this->endSection() ?>
 
-<?= $this->section('bg-header') ?> 
-	style="background-image: url('<?= base_url() . '/uploads/imgs/' . $foto['0'] ?>')"
+<?= $this->section('img-bgheader') ?>
+<img class="img-bg-header" src="<?= base_url() . '/uploads/imgs/' . $foto['0'] ?>">
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>

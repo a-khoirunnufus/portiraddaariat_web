@@ -19,7 +19,8 @@
 <body>
 <!-- header section -->
 	<div class="header">
-		<div class="header-bg<?= $title == 'Homepage' ? '-homepage' : '-menu' ?>" <?= $this->renderSection('bg-header') ?> >
+		<div class="header-bg<?= $title == 'Homepage' ? '-homepage' : '-menu' ?>" >
+			<?= $this->renderSection('img-bgheader') ?>
 			<div class="container d-flex flex-column h-100">
 				<?= $this->include('Public/navbar') ?>
 				<?= $this->renderSection('text-header') ?>
@@ -62,27 +63,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
+	var title = <?php echo json_encode($title) ?>;
+	if(title == 'Homepage'){
+		$('#top-navbar').addClass('navbar-light');
+	}else{
+		$('#top-navbar').addClass('navbar-dark');
+	}
 
 	//tampilan navbar berubah jika discroll
-	$('.navbar-brand').attr("style", "visibility: hidden");
-	$(window).scroll(function () {		
-		if ($(this).scrollTop() >  98) {
-			$('#top-navbar').addClass('navbar-solid').removeClass('bg-transparent');
-			$('.navbar-brand').attr("style", "visibility: visible");
-		} else {
-			$('#top-navbar').addClass('bg-transparent').removeClass('navbar-solid');
-			$('.navbar-brand').attr("style", "visibility: hidden");
+	$(window).scroll(function () {
+		if(title == 'Homepage'){
+			if ($(this).scrollTop() >  98) {
+				$('#top-navbar').addClass('navbar-solid').removeClass('bg-transparent');
+			} else {
+				$('#top-navbar').addClass('bg-transparent').removeClass('navbar-solid');
+			}
+		}else{
+			if ($(this).scrollTop() >  98) {
+				$('#top-navbar').addClass('navbar-solid navbar-light').removeClass('bg-transparent navbar-dark');
+			} else {
+				$('#top-navbar').addClass('bg-transparent navbar-dark').removeClass('navbar-solid navbar-light');
+			}
 		}
 	});
-
-	//membatasi panjang teks deskripsi
-	for (var i = 0; i < document.querySelectorAll('.desc-kegiatan').length; i++) {
-	  var truncated = document.querySelectorAll('.desc-kegiatan')[i].innerText
-	  if (truncated.length > 400) {
-	        truncated = truncated.substr(0,400) + '...';
-	  }
-	  document.querySelectorAll('.desc-kegiatan')[i].innerText = truncated;
-	}
 });
 </script>
 <?= $this->renderSection('script') ?>

@@ -6,9 +6,9 @@
 
 <?= $this->section('text-header') ?>
 <div class="flex-fill d-flex">
-	<div class="jumbotron transparent align-self-center col-6">
-		<h1 class="display-4 text-white">Hello, world!</h1>
-		<p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+	<div class="jumbotron transparent align-self-center col">
+		<h1 class="display-4 text-white">Program Terima Kasih</h1>
+		<p class="lead text-white">"no one has become poor by giving"</p>
 	</div>
 </div>
 <?= $this->endSection() ?>
@@ -80,8 +80,8 @@
 	<div class="container d-flex h-100">
 		<div class="col-5 ml-auto align-self-center">
 			<div class="jumbotron transparent">
-				<h1 class="display-4 text-white">Hello, world!</h1>
-				<button type="button" class="btn btn-alpha-grey"><span class="text-white">Bergabung Sekarang</span></button>
+				<h1 class="display-4 text-white">Ayo Bergabung Bersama Kami</h1>
+				<a href="<?= route_to('bergabung') ?>" class="btn btn-alpha-grey"><span class="text-white">Bergabung Sekarang</span></a>
 			</div>
 		</div>
 	</div>
@@ -104,8 +104,8 @@
 	<div class="container d-flex h-100">
 		<div class="col-6 mr-auto align-self-center">
 			<div class="jumbotron transparent align-self-center">
-				<h1 class="display-4 text-white">Hello, world!</h1>
-				<button type="button" class="btn btn-alpha-grey"><span class="text-white">Donasi Sekarang</span></button>
+				<h1 class="display-4 text-white">Ayo Berdonasi</h1>
+				<a href="<?= route_to('donasi') ?>" class="btn btn-alpha-grey"><span class="text-white">Donasi Sekarang</span></a>
 			</div>
 		</div>
 	</div>
@@ -117,4 +117,17 @@
 </div>
 <!-- ajakan berdonasi section end -->
 
+<?= $this->endSection() ?>
+
+<?= $this->section('script') ?>
+<script>
+	//membatasi panjang teks deskripsi
+	for (var i = 0; i < document.querySelectorAll('.desc-kegiatan').length; i++) {
+	  var truncated = document.querySelectorAll('.desc-kegiatan')[i].innerText
+	  if (truncated.length > 400) {
+	        truncated = truncated.substr(0,400) + '...';
+	  }
+	  document.querySelectorAll('.desc-kegiatan')[i].innerText = truncated;
+	}
+</script>
 <?= $this->endSection() ?>

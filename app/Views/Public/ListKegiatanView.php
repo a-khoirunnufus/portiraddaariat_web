@@ -32,8 +32,16 @@
 </style>
 <?= $this->endSection() ?>
 
-<?= $this->section('bg-header') ?> 
-	style="background-image: url('<?= base_url('/assets/img/fotokegiatan03.jpg')?>')"
+<?= $this->section('img-bgheader') ?>
+<img class="img-bg-header bg-filterdark" src="<?= base_url('/assets/img/fotokegiatan03.jpg')?>">
+<?= $this->endSection() ?>
+
+<?= $this->section('text-header') ?>
+<div class="flex-fill d-flex">
+	<div class="jumbotron transparent align-self-center mx-auto">
+		<h1 class="display-4 text-white">Kegiatan Kami</h1>
+	</div>
+</div>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>

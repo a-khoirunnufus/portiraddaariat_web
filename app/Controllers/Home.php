@@ -61,11 +61,11 @@ class Home extends BaseController
     	return view('Public/DonasiView',$data);
     }
 
-    public function bantuan(){
+    public function bergabung(){
     	$data = [
-                'title' => 'Bantuan'
+                'title' => 'Bergabung'
         ];
-    	return view('Public/BantuanView',$data);
+    	return view('Public/BergabungView',$data);
     }
 
 	//--------------------------------------------------------------------

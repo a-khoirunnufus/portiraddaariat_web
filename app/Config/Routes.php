@@ -38,7 +38,7 @@ $routes->group('kegiatan', function($routes) {
 });
 $routes->get('about', 'Home::about', ['as' => 'about']);
 $routes->get('donasi', 'Home::donasi', ['as' => 'donasi']);
-$routes->get('bantuan', 'Home::bantuan', ['as' => 'bantuan']);
+$routes->get('bergabung', 'Home::bergabung', ['as' => 'bergabung']);
 
 $routes->group('admin', function($routes) {
 	$routes->get('/', 'Auth::index', ['as' => 'index']);
