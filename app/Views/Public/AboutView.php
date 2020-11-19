@@ -18,11 +18,11 @@
 <?= $this->section('content') ?>
 <div class="container hspace-sm">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-lg-8 col-md-12">
 			<p class="lead">Komunitas Program Terima Kasih, Portir Addaariat Banyuwangi.<br />
 				"no one has become poor by giving"</p>
 		</div>
-		<div class="col-md-4">
+		<div class="col-lg-4 col-md-12 mt-lg-0 mt-4">
 			<div class="pl-4" style="border-left: 1px solid grey">
 			<h4>Kontak</h4>
 			<br />
@@ -35,7 +35,7 @@
 		<div class="col">
 			<h4>Lokasi pada peta</h4>
 		</div>
-		<div class="col-md-8 mt-3">
+		<div class="col-lg-8 col-md-12 mt-3">
 			<div style="width: 100%"><iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%20Jajag%20Kel.,%20Gambiran,%20Banyuwangi,%20Indonesia%20Jajag,%20East%20Java%2068486+(Portir%20Addaariat)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/route-planner.htm">Google Route Planner</a></div>
 		</div>
 	</div>

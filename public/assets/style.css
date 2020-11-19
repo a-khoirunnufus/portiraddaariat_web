@@ -19,6 +19,7 @@
 	position: relative;
 	overflow: hidden;
 }
+
 .img-bg-header{
 	position: absolute;
 	width: 100%;
@@ -94,4 +95,18 @@
 }
 .hspace-xs{
 	margin-top: 50px;
+}
+
+/* On screens that are 767px wide or less */
+@media screen and (max-width: 767px) {
+	#svg-header-bor-btm-menu{
+		top: 385px;
+	}
+}
+
+/* On screens that are 575px wide or less */
+@media screen and (max-width: 575px) {
+	#svg-header-bor-btm-menu{
+		top: 390px;
+	}
 }

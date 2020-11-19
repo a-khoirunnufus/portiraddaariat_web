@@ -10,119 +10,141 @@
 
 <?= $this->section('style') ?>
 <style>
-.card-tanggal{
-	width: 100px;
-	height: 100px;
-	border-radius: 10px;
-	box-shadow: 0px 0px 5px grey;
-	text-align: center;
-}
-.card-tanggal-innershape{
-	width: 100%;
-	height: 20%;
-	background-color: red;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-}
-.card-tanggal-text{
-	font-size: 48px;
-}
+	.card-tanggal{
+		width: 100px;
+		height: 100px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 5px grey;
+		text-align: center;
+	}
+	.card-tanggal-innershape{
+		width: 100%;
+		height: 20%;
+		background-color: red;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.card-tanggal-text{
+		font-size: 48px;
+	}
 
-.foto-kegiatan-container{
-	overflow: hidden;
-}
+	.foto-kegiatan-container{
+		overflow: hidden;
+	}
 
-.foto-kegiatan{
-  max-width: 100%;
-  min-height: 175px;
-  object-fit: cover;
-  background-position: center;
-  transition: 0.3s;
-}
+	.foto-kegiatan{
+	  max-width: 100%;
+	  min-height: 175px;
+	  object-fit: cover;
+	  background-position: center;
+	  transition: 0.3s;
+	}
 
-.foto-kegiatan:hover {
-  opacity: 0.5;
-  cursor: pointer;
-}
+	.foto-kegiatan:hover {
+	  opacity: 0.5;
+	  cursor: pointer;
+	}
 
-.img-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 175px);
-  grid-gap: 5px;
-}
+	.img-grid {
+	  display: grid;
+	  grid-template-columns: repeat(5, 1fr);
+	  grid-template-rows: repeat(2, 175px);
+	  grid-gap: 5px;
+	}
 
-/* The Modal (background) */
-.modal-fotokegiatan {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 20vh; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
+	/* The Modal (background) */
+	.modal-fotokegiatan {
+	  display: none; /* Hidden by default */
+	  position: fixed; /* Stay in place */
+	  z-index: 3; /* Sit on top */
+	  padding-top: 20vh; /* Location of the box */
+	  left: 0;
+	  top: 0;
+	  width: 100%; /* Full width */
+	  height: 100%; /* Full height */
+	  overflow: auto; /* Enable scroll if needed */
+	  background-color: rgb(0,0,0); /* Fallback color */
+	  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+	}
 
-/* Modal Content (image) */
-.modal-fotokegiatan-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  height: 70%;
-  object-fit: contain;
-}
+	/* Modal Content (image) */
+	.modal-fotokegiatan-content {
+	  margin: auto;
+	  display: block;
+	  width: 80%;
+	  max-width: 700px;
+	  height: 70%;
+	  object-fit: contain;
+	}
 
-/* Caption of Modal Image */
-#caption-fotokegiatan {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 20%;
-}
+	/* Caption of Modal Image */
+	#caption-fotokegiatan {
+	  margin: auto;
+	  display: block;
+	  width: 80%;
+	  max-width: 700px;
+	  text-align: center;
+	  color: #ccc;
+	  padding: 10px 0;
+	  height: 20%;
+	}
 
-/* Add Animation */
-.modal-fotokegiatan-content, #caption-fotokegiatan {  
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
+	/* Add Animation */
+	.modal-fotokegiatan-content, #caption-fotokegiatan {  
+	  -webkit-animation-name: zoom;
+	  -webkit-animation-duration: 0.6s;
+	  animation-name: zoom;
+	  animation-duration: 0.6s;
+	}
 
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
-  to {-webkit-transform:scale(1)}
-}
+	@-webkit-keyframes zoom {
+	  from {-webkit-transform:scale(0)} 
+	  to {-webkit-transform:scale(1)}
+	}
 
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
+	@keyframes zoom {
+	  from {transform:scale(0)} 
+	  to {transform:scale(1)}
+	}
 
-/* The Close Button */
-.close-modal {
-  position: fixed;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
+	/* The Close Button */
+	.close-modal {
+	  position: absolute;
+	  top: 15px;
+	  right: 35px;
+	  color: #f1f1f1;
+	  font-size: 40px;
+	  font-weight: bold;
+	  transition: 0.3s;
+	}
 
-.close-modal:hover,
-.close-modal:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
+	.close-modal:hover,
+	.close-modal:focus {
+	  color: #bbb;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+
+	/* On screens that are 991px wide or less */
+	@media screen and (max-width: 991px) {
+		.img-grid {
+		  grid-template-columns: repeat(4, 1fr);
+		  grid-template-rows: repeat(3, 175px);
+		}
+	}
+	/* On screens that are 767px wide or less */
+	@media screen and (max-width: 767px) {
+		.img-grid {
+		  grid-template-columns: repeat(3, 1fr);
+		  grid-template-rows: repeat(4, 175px);
+		}
+	}
+	/* On screens that are 575px wide or less */
+	@media screen and (max-width: 575px) {
+	.img-grid {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(5, 175px);
+	}
 }
 </style>
 <?= $this->endSection() ?>

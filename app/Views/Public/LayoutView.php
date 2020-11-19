@@ -72,7 +72,7 @@ $(document).ready(function(){
 
 	var win_width = $(window).width();
 	if(win_width < 975){
-		$('#top-navbar').addClass('navbar-solid').removeClass('bg-transparent');
+		$('#top-navbar').addClass('navbar-solid navbar-light').removeClass('bg-transparent navbar-dark');
 		$('#svg-header-brand').attr('style','visibility: hidden');
 	}else{
 		//tampilan navbar berubah jika discroll

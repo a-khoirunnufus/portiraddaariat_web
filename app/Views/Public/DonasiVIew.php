@@ -20,13 +20,13 @@
 	<h4>Ayo Berdonasi!</h4>
 	<p class="lead">Bantulah mereka yang membutuhkan</p>
 	<div class="row hspace-sm">
-		<div class="col-md-6">
+		<div class="col-lg-6 col-md-12">
 			<h4 class="mb-4">Via Rekening</h4>
-			<p>Nomor Rekening : 0793019637</p>
+			<p class="lead">Nomor Rekening : 0793019637</p>
 		</div>
-		<div class="col-md-6 pl-5" style="border-left: 1px solid grey">
+		<div class="col-lg-6 col-md-12 pl-lg-5 mt-lg-0 mt-5">
 			<h4 class="mb-4">Via Linkaja & Dana</h4>
-			<p>Nomor HP : 0852-3607-4020</p>
+			<p class="lead">Nomor HP : 0852-3607-4020</p>
 		</div>
 	</div>
 </div>
