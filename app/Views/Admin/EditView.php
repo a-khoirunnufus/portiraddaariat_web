@@ -76,7 +76,7 @@
                             <button type="submit" class="btn btn-primary btn-btm">Simpan</button>
                         </div>
                         <div class="col-12 col-sm">
-                            <a href="<?= route_to('edit', $post['slug'] . '-' . $post['u_code']) ?>" class="btn btn-info btn-btm float-right">
+                            <a href="<?= route_to('edit-gallery', $post['slug'] . '-' . $post['u_code']) ?>" class="btn btn-info btn-btm float-right">
                                 <i class="fa fa-images"></i> Edit Galeri Foto
                             </a>
                         </div>

@@ -1,6 +1,12 @@
 <?= $this->extend('Public/LayoutView') ?>
 
 <?= $this->section('style') ?>
+<style>
+	.img-donasi{
+		width: 100%;
+		padding: 30px;
+	}
+</style>
 <?= $this->endSection() ?>
 
 <?= $this->section('img-bgheader') ?>
@@ -22,10 +28,15 @@
 	<div class="row hspace-sm">
 		<div class="col-lg-6 col-md-12">
 			<h4 class="mb-4">Via Rekening</h4>
+			<div><img class="img-donasi" src="<?= base_url('assets/img/bankjatimlogo.jpg') ?>"></div>
 			<p class="lead">Nomor Rekening : 0793019637</p>
 		</div>
 		<div class="col-lg-6 col-md-12 pl-lg-5 mt-lg-0 mt-5">
 			<h4 class="mb-4">Via Linkaja & Dana</h4>
+			<div class="row">
+				<div class="col-6"><img class="img-donasi" src="<?= base_url('assets/img/linkajalogo.png') ?>"></div>
+				<div class="col-6"><img class="img-donasi" src="<?= base_url('assets/img/danalogo.png') ?>"></div>
+			</div>
 			<p class="lead">Nomor HP : 0852-3607-4020</p>
 		</div>
 	</div>

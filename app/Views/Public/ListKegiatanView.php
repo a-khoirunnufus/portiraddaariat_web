@@ -71,7 +71,7 @@
 						<h5><i class="fa fa-map-marker" aria-hidden="true"></i> <?= $kegiatan['lokasi'] ?></h5>
 					</div>
 					<div class="col-xl-2 col-lg-3 col-sm-4 col-12">
-						<a href="<?= route_to('detail', $kegiatan['slug'] . '-' . $kegiatan['u_code']) ?>" class="btn btn-primary mt-3">Lihat Detail</a>
+						<a href="<?= route_to('detail-public', $kegiatan['slug'] . '-' . $kegiatan['u_code']) ?>" class="btn btn-primary mt-3">Lihat Detail</a>
 					</div>
 				</div>
 			</div>

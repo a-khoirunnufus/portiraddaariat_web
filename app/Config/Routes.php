@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index', ['as' => 'homepage']);
 $routes->group('kegiatan', function($routes) {
 	$routes->get('/', 'Home::list_kegiatan', ['as' => 'list-kegiatan']);
-	$routes->get('(:any)', 'Home::detail/$1', ['as' => 'detail']);
+	$routes->get('(:any)', 'Home::detail/$1', ['as' => 'detail-public']);
 });
 $routes->get('about', 'Home::about', ['as' => 'about']);
 $routes->get('donasi', 'Home::donasi', ['as' => 'donasi']);
