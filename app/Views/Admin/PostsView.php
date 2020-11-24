@@ -80,5 +80,5 @@
 <?= $this->section('script') ?>
 <script src="<?= base_url('assets/dataTable/jquery.dataTables.min.js') ?>"></script>
 <script src="<?= base_url('assets/dataTable/dataTables.bootstrap4.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/posts.js') ?>"></script>
+<script src="<?= base_url('assets/js/posts.min.js') ?>"></script>
 <?= $this->endSection() ?>

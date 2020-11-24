@@ -45,6 +45,8 @@ $routes->group('admin', function($routes) {
 	$routes->post('login', 'Auth::login', ['as' => 'login']);
 	$routes->post('logout', 'Auth::logout', ['as' => 'logout']);
 	$routes->get('dashboard', 'Dashboard::index', ['as' => 'dashboard']);
+	$routes->get('edit-profile', 'Dashboard::edit_profile', ['as' => 'edit-profile']);
+	$routes->post('update-profile', 'Dashboard::update_profile', ['as' => 'update-profile']);
 	$routes->group('kegiatan', function($routes) {
 		$routes->get('/', 'Dashboard::posts', ['as' => 'posts']);
 		$routes->get('add', 'Dashboard::create', ['as' => 'create']);

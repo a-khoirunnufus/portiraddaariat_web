@@ -1,14 +1,17 @@
 <?php
 namespace App\Controllers;
 use App\Models\PostModel;
+use App\Models\AdminModel;
 
 class Dashboard extends BaseController
 {
     protected $postModel;
+    protected $adminModel;
     protected $validation;
 
     public function __construct() {
         $this->postModel = new PostModel();
+        $this->adminModel = new adminModel();
         $this->validation = \Config\Services::validation();
 	}
 
@@ -22,6 +25,67 @@ class Dashboard extends BaseController
         }
         else
             return redirect()->to(route_to('index'));
+    }
+
+    public function edit_profile() {
+        if ($this->session->logged_in) {
+            $user = $this->adminModel->where('username', $this->session->username)->first();
+            return json_encode($user);
+        }
+        return redirect()->to(route_to('index'));
+    }
+
+    public function update_profile() {
+        $validate = [
+            'nama' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
+                    'required' => 'Nama harus diisi.',
+                    'min_length' => 'Nama minimal 3 karakter.'
+                ]
+            ],
+            'username' => [
+                'rules' => 'required|is_unique[user.username,username,' . $this->session->username . ']',
+                'errors' => [
+                    'required' => 'Username harus diisi.',
+                    'is_unique' => 'Username sudah dipakai.'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'Password harus diisi.',
+                    'min_length' => 'Password minimal 5 karakter.'
+                ]
+            ]
+        ];
+
+        if (! $this->validate($validate))
+            return json_encode([
+                'status' => 'error',
+                'msg' => $this->validation->getErrors()
+            ]);
+        else {
+            $user = $this->adminModel->where('username', $this->session->username)->first();
+
+            $nama = $this->request->getVar('nama');
+            $username = $this->request->getVar('username');
+            $this->adminModel->save([
+                'id' => $user['id'],
+                'nama' => $nama,
+                'username' => $username,
+                'password' => $this->request->getVar('password')
+            ]);
+
+            $this->session->set([
+                'nama' => $nama,
+                'username' => $username
+            ]);
+            
+            return json_encode([
+                'status' => 'success',
+            ]);
+        }
     }
     
     public function create() {
